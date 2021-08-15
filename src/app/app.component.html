@@ -9,9 +9,19 @@
   <h2>**Meu Todos**</h2>
   <h3>{{title}}</h3>
   <ul>
+    <p *ngIf="todos.length == 0 ">Você está em dia</p>
     <Li *ngFor="let todo of todos">{{todo.id}} -
        {{todo.title}} -
        <button (click)="remove(todo)">Remover</button> | 
        <button *ngIf="!todo.done" (click)="markAsDone(todo)">Concluir</button>
        <button *ngIf="todo.done" (click)="markAsUndone(todo)">Refazer</button></Li>
   </ul>
+
+  <form [formGroup]="form">
+    <fieldset>
+      <label >Tarefa</label>
+      <input type="text" placeholder="Título da Tarefa" maxlength="60" formControlName="title">
+      <small *ngIf="form.controls.title.invalid && !form.controls.title.pristine">O título deve conter entre 3 e 60 caracteres</small>
+      <button [disabled]="form.invalid" (click)="add()">Salvar</button>
+    </fieldset>
+  </form>
