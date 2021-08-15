@@ -1,7 +1,17 @@
-<!DOCTYPE html>
-<body>
-  <h1>Estamos no angular :) </h1>
+  <h1>Estamos no Angular :) </h1>
   <h2>Hello world!</h2>
-  <h2>Welcome world angular!</h2>
-</body>
-</html>
+  <h2>Welcome world Angular!</h2>
+  
+  
+  <h2></h2>
+
+
+  <h2>**Meu Todos**</h2>
+  <h3>{{title}}</h3>
+  <ul>
+    <Li *ngFor="let todo of todos">{{todo.id}} -
+       {{todo.title}} -
+       <button (click)="remove(todo)">Remover</button> | 
+       <button *ngIf="!todo.done" (click)="markAsDone(todo)">Concluir</button>
+       <button *ngIf="todo.done" (click)="markAsUndone(todo)">Refazer</button></Li>
+  </ul>
