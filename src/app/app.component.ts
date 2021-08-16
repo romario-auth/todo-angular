@@ -60,4 +60,14 @@ export class AppComponent {
     todo.done = false;
   }
 
+  save()
+  {
+    // Implement save: Save localstore, database or API
+  }
+
+  load()
+  {
+    // Implement load: load data from localstore, database or API
+  }
+
 }
